@@ -3,4 +3,5 @@
 .settings
 composer.lock
 app/config/venus.php
+app/config/venus.michelw.in.php
 vendor
