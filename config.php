@@ -40,7 +40,7 @@ function __autoload ($reqClass)
     $_class_name = preg_replace($patterns, $replacements, $reqClass);
     $_type = $_fragment[0];
     $_file = DIR_APP . strtolower($_type) . 's/';
-    $_file .= $_class_name . ucfirst($_type) . '.php';
+    $_file .= $_class_name . '.php';
 
     if (file_exists($_file)) {
 

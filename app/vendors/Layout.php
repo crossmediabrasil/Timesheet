@@ -4,8 +4,10 @@ class Layout extends System {
   
     public static function mainHeader()
     {
-        //self::addJs(0, self::static_location('js/library.js', true));
-        //self::addJs(10, self::static_location('js/application.js', true));
+        $i=0;
+        self::addJs($i++, self::static_location('js/jquery-1.9.1.min.js', true));
+        self::addJs($i++, self::static_location('js/jquery-migrate-1.1.1.min.js', true));
+        self::addJs($i++, self::static_location('js/bootstrap.min.js', true));
         
         self::addCss(100, self::static_location('css/style.css', true));
 
@@ -64,7 +66,8 @@ class Layout extends System {
             'footer', 
             Array(
 //               'load_css'     => self::loadDefaultCss(),
-        		'year' => date('Y')
+            		'year' => date('Y'),
+                'load_js' => self::loadDefaultJs(),
             )
         );    
 

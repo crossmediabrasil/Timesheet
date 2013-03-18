@@ -22,43 +22,41 @@ $Models = new Models();
 System::seoTitle(APP_TITLE);
 if (count($_r) > 1) {
 
-    // Load model if exists
-    System::loadModel(ucfirst($_r[1]));
-
-    // throw new Exception('Division by zero.');
-    
-    var_dump(eval('$objController = new Controller' . ucfirst($_r[1]) . '();'));
-    
-    
-
-    // Model exists?
-    if (file_exists(DIR_APP . 'models/' . ucfirst($_r[1]) . 'Model.php')) {
+	  // Model exists?
+    if (file_exists(DIR_MODELS . ucfirst($_r[1]) . '.php')) {
+    	
+    		System::loadModel(ucfirst($_r[1]));
+    	
         eval('$objModel = new Model' . ucfirst($_r[1]) . '();');
     }
     
-
-    if (!empty($_r[2]) && method_exists($objController, $_r[2])) {
-
-        eval('$objController->' . $_r[2] . '();');
-
-    } else {
-
-        eval('$objController->indexAction();');
-
+    // Controller exists?
+    if (file_exists(DIR_CONTROLLERS . ucfirst($_r[1]) . '.php')) {
+	    	$objController = System::loadController(ucfirst($_r[1]));
+	    	
+	    	if (!empty($_r[2]) && method_exists($objController, $_r[2])) {
+	    			eval('$objController->' . $_r[2] . '();');
+	    	} else {
+	    			eval('$objController->indexAction();');
+	    	}
     }
+   
 
 } else {
-
-    // Load model if exists
-    System::loadModel(DEFAULT_CONTROLLER);
     
-    $_file = DIR_CONTROLLERS . DEFAULT_CONTROLLER.'Controller.php';
-    if (file_exists($_file)) {
-    	include_once($_file);
+    // Model exists?
+    if (file_exists(DIR_MODELS . DEFAULT_CONTROLLER . '.php')) {
+	    	 
+	    	System::loadModel(DEFAULT_CONTROLLER);
+	    	 
+	    	eval('$objModel = new Model' . DEFAULT_CONTROLLER . '();');
     }
     
-    eval('$objController = new Controller' . DEFAULT_CONTROLLER . '();');
-    eval('$objController->indexAction();');
+    // Controller exists?
+    if (file_exists(DIR_CONTROLLERS . DEFAULT_CONTROLLER . '.php')) {
+	    	$objController = System::loadController(DEFAULT_CONTROLLER);
+	   		eval('$objController->indexAction();');
+    }
 }
 
 // Comprimindo arquivo de log do dia anterior

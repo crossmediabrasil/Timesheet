@@ -156,6 +156,21 @@ class System
         return $_str;
     }
 
+    public static function getRoute()
+    {
+    	  $_str = '';
+    	  for ($i=1;$i<=count(self::rewrite()); $i++) {
+    	  	  $_tmp = self::rewrite($i);
+    	  	  if ($_tmp !== null) {
+    	  	  		$_str .= $_tmp.'/';
+    	  	  }
+    	  }
+    	  if ($_str === '') {
+    	  	  $_str = '/';
+    	  }
+    	  return $_str;
+    }
+    
     /**
      * Works with the url_rewrite mod
      *
@@ -214,13 +229,14 @@ class System
         if (is_int($_index)) {
             if (isset($_rewrite[ $_index ])) {
                 $_return = self::removeLastChar($_rewrite[ $_index ], '/');
+                
                 if (strpos($_return, '?')>0) {
                     $_tmp = explode('?', $_return);
                     $_return = $_tmp[0];
                 }
             }
             return $_return;
-        } else {
+        } else {  
             return $_rewrite;
         }
     }
@@ -461,12 +477,29 @@ class System
     {
 
         // File exists
-        $_file = DIR_MODELS . $_name . 'Model.php';
-
+        $_file = DIR_MODELS . $_name . '.php';
+				
         if (file_exists($_file) === true) {
+        		include_once $_file;
             eval('$obj = new Model' . $_name . '();');
         }
         
+    }
+    
+    public static function loadController ($_name)
+    {
+    
+	    	// File exists
+	    	$_file = DIR_CONTROLLERS . $_name . '.php';
+	    
+	    	if (file_exists($_file) === true) {
+		    		include_once $_file;
+		    		eval('$obj = new Controller' . $_name . '();');
+		    		return $obj;
+	    	} else {
+	    			return false;
+	    	}
+    
     }
 
 
