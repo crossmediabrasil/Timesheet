@@ -1,0 +1,13 @@
+{
+    "require": {
+        "twig/twig": "1.*",
+        "swiftmailer/swiftmailer": ">=4.1.2,<4.2-dev",
+        "Respect/Rest": "dev-master",
+        "Respect/Validation": "dev-master"
+    },
+    "autoload": {
+        "psr-0": {
+            "Respect\\Validation": "library\/"
+        }
+    }    
+}
