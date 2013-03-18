@@ -4,14 +4,8 @@ class Layout extends System {
   
     public static function mainHeader()
     {
-        self::addJs(0, self::static_location('js/library.js', true));
-        //self::addJs(0, self::static_location('js/jquery.js', true));
-        //self::addJs(1, self::static_location('js/jquery-ui/jquery-ui.js', true));
-        //self::addJs(2, self::static_location('js/modernizr.js', true));
-        //self::addJs(3, self::static_location('js/jquery-ui/jquery-ui.toggleSwitch.js', true));
-
-
-        self::addJs(10, self::static_location('js/application.js', true));
+        //self::addJs(0, self::static_location('js/library.js', true));
+        //self::addJs(10, self::static_location('js/application.js', true));
         
         self::addCss(100, self::static_location('css/style.css', true));
 
@@ -69,7 +63,8 @@ class Layout extends System {
         self::render(
             'footer', 
             Array(
-//               'load_css'     => self::loadDefaultCss()
+//               'load_css'     => self::loadDefaultCss(),
+        		'year' => date('Y')
             )
         );    
 

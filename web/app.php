@@ -25,7 +25,11 @@ if (count($_r) > 1) {
     // Load model if exists
     System::loadModel(ucfirst($_r[1]));
 
-    eval('$objController = new Controller' . ucfirst($_r[1]) . '();');
+    // throw new Exception('Division by zero.');
+    
+    var_dump(eval('$objController = new Controller' . ucfirst($_r[1]) . '();'));
+    
+    
 
     // Model exists?
     if (file_exists(DIR_APP . 'models/' . ucfirst($_r[1]) . 'Model.php')) {
@@ -47,7 +51,12 @@ if (count($_r) > 1) {
 
     // Load model if exists
     System::loadModel(DEFAULT_CONTROLLER);
-
+    
+    $_file = DIR_CONTROLLERS . DEFAULT_CONTROLLER.'Controller.php';
+    if (file_exists($_file)) {
+    	include_once($_file);
+    }
+    
     eval('$objController = new Controller' . DEFAULT_CONTROLLER . '();');
     eval('$objController->indexAction();');
 }

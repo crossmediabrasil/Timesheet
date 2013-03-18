@@ -74,7 +74,7 @@ class System
             )
         );
 
-        $template = $twig->loadTemplate($_view . '.php');
+        $template = $twig->loadTemplate($_view . '.html.twig');
         echo $template->render($_args);
 
     }
@@ -461,7 +461,7 @@ class System
     {
 
         // File exists
-        $_file = DIR_APP . 'models/' . $_name . 'Model.php';
+        $_file = DIR_MODELS . $_name . 'Model.php';
 
         if (file_exists($_file) === true) {
             eval('$obj = new Model' . $_name . '();');

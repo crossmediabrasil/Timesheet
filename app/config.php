@@ -17,3 +17,15 @@ default:
 define('DEFAULT_CONTROLLER', 'Home');
 
 require_once __ROOT__ . 'global_config.php';
+
+// Gerando CSS
+define('ALWAYS_COMPILE', false);
+require_once DIR_APP . 'vendors/less_minified.inc.php';
+try {
+	LessMinified::ccompile(
+			STATIC_DIR."css/style.less",
+			STATIC_DIR."css/style.css"
+	);
+} catch(exception $ex) {
+	exit($ex->getMessage());
+}

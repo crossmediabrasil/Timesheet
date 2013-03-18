@@ -1,0 +1,24 @@
+<!doctype html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>{{ seo_title }}</title>
+<base href="{{ url_base }}"/>
+<meta name="keywords" content="{{ seo_tags }}"/>
+<meta name="description" content="{{ seo_description }}"/>
+<meta name="robots" content="NOFOLLOW"/>
+<link rel="shortcut icon" type="image/x-icon" href="{{ url_favicon }}" />
+<link rel="icon" type="image/x-icon" href="{{ url_favicon }}" />
+<script>
+var __DNS = '{{ js_dns }}';
+var __URL = '{{ js_url }}';
+var __PATH = '{{ js_path }}';
+var __STATIC_URL = '{{ js_static_url }}';
+</script>
+<!-- Javascript -->
+{{ load_css }}
+
+{{ load_js }}
+</head>
+<body>

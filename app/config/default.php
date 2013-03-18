@@ -27,7 +27,7 @@ define('EMAIL_FROM_EMAIL', 'user@host.com');
 // Assunto padrão do email de confirmação
 define('EMAIL_CONFIRMATION_SUBJECT', 'E-mail confirmation subject');
 
-define('APP_TITLE', 'Timesheet');
+define('APP_TITLE', 'Mongosheet');
 define('STATIC_DIR', __ROOT__ . 'web/');
 define('__TITLE_SEP__', '-');
 define('__TITLE_SEP_INV__', '-');

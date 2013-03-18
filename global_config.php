@@ -22,6 +22,14 @@ if (!defined('DIR_APP')) {
     define('DIR_APP', __ROOT__ . 'app/');
 }
 
+if (!defined('DIR_CONTROLLERS')) {
+	define('DIR_CONTROLLERS', DIR_APP.'controllers/');
+}
+
+if (!defined('DIR_MODELS')) {
+	define('DIR_MODELS', DIR_APP.'models/');
+}
+
 if (!defined('DIR_VENDOR')) {
     define('DIR_VENDOR', __ROOT__ . 'vendor/');
 }

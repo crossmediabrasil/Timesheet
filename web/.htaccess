@@ -1,7 +1,9 @@
-<FilesMatch "\.(js|css|png|jpg|gif)$">
-  ExpiresActive on 
-  ExpiresDefault "access plus 1 month"
-</FilesMatch>
+<IfModule mod_expires>
+  <FilesMatch "\.(js|css|png|jpg|gif)$">
+    ExpiresActive on 
+    ExpiresDefault "access plus 1 month"
+  </FilesMatch>
+</IfModule>
 
 <IfModule mod_rewrite.c>
     RewriteEngine On
