@@ -1,4 +1,6 @@
 .buildpath
 .project
 .settings
+composer.lock
 app/config/venus.php
+
