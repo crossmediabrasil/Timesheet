@@ -1,11 +1,28 @@
 <div class="container">
-  <form class="form-signin">
-    <h2 class="form-signin-heading">Entrar</h2>
-    <input type="text" class="input-block-level" placeholder="E-mail">
-    <input type="password" class="input-block-level" placeholder="Senha">
-    <label class="checkbox">
-      <input type="checkbox" value="remember-me"> Lembrar-se
-    </label>
-    <button class="btn btn-large btn-primary" type="submit">Entrar</button>
-  </form>
-</div> <!-- /container -->
+    <div class="row">
+        <div class="span6">
+            <form class="form">
+                <h2 class="form-heading">Entrar</h2>
+                <input type="text" class="input-block-level" placeholder="E-mail">
+                <input type="password" class="input-block-level" placeholder="Senha">
+                <label class="checkbox">
+                  <input type="checkbox" value="remember-me"> Lembrar-se
+                </label>
+                <label>
+                    <a href="{{ url }}users/forgot" title="Recuperar senha">Recuperar senha</a>
+                </label>
+                <button class="btn btn-primary" type="submit">Entrar</button>
+            </form>
+        </div>
+        <div class="span6">
+            <form method="post" action="{{ url }}users/newUser" class="form">
+                <h2 class="form-heading">Novo usuário</h2>
+                <input type="text" name="name" class="input-block-level" placeholder="Nome">
+                <input type="text" name="email" class="input-block-level" placeholder="E-mail">
+                <input type="password" name="password" class="input-block-level" placeholder="Senha">
+                <input type="password" name="re_password" class="input-block-level" placeholder="Repita a senha">
+                <button class="btn btn-primary" type="submit">Cadastrar</button>
+            </form>
+        </div>
+    </div>
+</div>
